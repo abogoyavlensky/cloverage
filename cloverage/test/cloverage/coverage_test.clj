@@ -416,3 +416,18 @@
                       require (constantly nil)]
           (t/is (= {:errors 3}
                    ((cov/runner-fn (merge opts runner-opts)) []))))))))
+
+(t/deftest test-runner-project-with-eftest
+  (binding [cov/*exit-after-test* false]
+    (t/is (=
+            (cov/run-project
+              {:output "out"
+               :html? false
+               :summary? false
+               :test-ns-regex [#"cloverage.sample.exercise-instrumentation"]
+               :ns-regex [#"cloverage.sample.exercise-instrumentation"]
+               :runner :eftest
+               :runner-opts {:capture-output? false
+                             :multithread? false
+                             :report clojure.test/report}})
+            0))))

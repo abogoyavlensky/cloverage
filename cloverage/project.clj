@@ -41,5 +41,6 @@
              :1.9 {:dependencies [[org.clojure/clojure "1.9.0"]]}
              :1.10 {:dependencies [[org.clojure/clojure "1.10.1"]]}
              :test {:source-paths ["sample"]
-                    :jvm-opts ["-Duser.language=en-US"]}}
+                    :jvm-opts ["-Duser.language=en-US"]
+                    :dependencies [[eftest/eftest "0.5.9"]]}}
   :aliases {"all" ["with-profile" "+1.4:+1.5:+1.6:+1.7:+1.8:+1.9:+1.10"]})
